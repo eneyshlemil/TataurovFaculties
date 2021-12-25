@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/miAbout"
+        android:title="О приложении" />
+    <item
+        android:id="@+id/stAdd"
+        android:title="Добавить студента" />
+    <item
+        android:id="@+id/stChange"
+        android:title="Изменить студента" />
+    <item
+        android:id="@+id/stDelete"
+        android:title="Удалить студента" />
+    <item
+        android:id="@+id/miExit"
+        android:title="Выход" />
+</menu>

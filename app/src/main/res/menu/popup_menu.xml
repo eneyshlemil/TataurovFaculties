@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/popup5"
+        android:title="5(отлично)" />
+    <item
+        android:id="@+id/popup4"
+        android:title="4(хорошо)" />
+    <item
+        android:id="@+id/popup3"
+        android:title="3(удовлетворительно)" />
+    <item
+        android:id="@+id/popup2"
+        android:title="5(неаттистован)" />
+</menu>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/addSb"
+        android:title="Добавить оценку" />
+    <item
+        android:id="@+id/changeSb"
+        android:title="Изменить оценку" />
+    <item
+        android:id="@+id/deleteSb"
+        android:title="Удалить оценку" />
+    <item
+        android:id="@+id/back"
+        android:title="Назад"
+        android:visible="false" />
+</menu>
