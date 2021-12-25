@@ -17,6 +17,12 @@
         <entry key="..\:/android/App3/app/src/main/res/menu/popup_menu.xml" value="0.16666666666666666" />
         <entry key="..\:/android/App3/app/src/main/res/menu/student_action.xml" value="0.25885416666666666" />
         <entry key="..\:/android/App3/app/src/main/res/menu/subject_menu.xml" value="0.2857142857142857" />
+        <entry key="app/src/main/res/layout/activity_student_info.xml" value="0.29030797101449274" />
+        <entry key="app/src/main/res/layout/main_ll.xml" value="0.296195652173913" />
+        <entry key="app/src/main/res/layout/student_element.xml" value="0.296195652173913" />
+        <entry key="app/src/main/res/layout/student_input.xml" value="0.296195652173913" />
+        <entry key="app/src/main/res/layout/subject_element.xml" value="0.296195652173913" />
+        <entry key="app/src/main/res/layout/subject_input.xml" value="0.296195652173913" />
       </map>
     </option>
   </component>

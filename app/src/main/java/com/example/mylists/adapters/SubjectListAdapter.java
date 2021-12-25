@@ -43,8 +43,8 @@ public class SubjectListAdapter extends BaseAdapter {
         convertView = mInflater.inflate(R.layout.subject_element, parent, false);
         if (mSubjects.isEmpty()) return convertView;
 
-        ((TextView) convertView.findViewById(R.id.tvSubjestName)).setText(mSubjects.get(position).getName());
-        ((TextView) convertView.findViewById(R.id.tvSubjectMark)).setText(mSubjects.get(position).getMark().toString());
+        ((TextView) convertView.findViewById(R.id.tvSubjectElementName)).setText(mSubjects.get(position).getName());
+        ((TextView) convertView.findViewById(R.id.tvSubjectElementMark)).setText(mSubjects.get(position).getMark().toString());
 
         return convertView;
     }

@@ -145,9 +145,9 @@ public class StudentInfoActivity extends AppCompatActivity {
         s = getIntent().getParcelableExtra("student");
         downloadFromDB dfb = new downloadFromDB();
         dfb.execute(s);
-        ((EditText) findViewById(R.id.etASI_FIO)).setText(s.getFIO());
-        ((EditText) findViewById(R.id.etASI_Faculty)).setText(s.getFaculty());
-        ((EditText) findViewById(R.id.etASI_Group)).setText(s.getGroup());
+        ((EditText) findViewById(R.id.etStudentFullName)).setText(s.getFIO());
+        ((EditText) findViewById(R.id.etStudentFaculty)).setText(s.getFaculty());
+        ((EditText) findViewById(R.id.etStudentGroup)).setText(s.getGroup());
 
 //        mSubjectListAdapter = new SubjectListAdapter(s.getSubjects(), StudentInfoActivity.this);
 //        ((ListView) findViewById(R.id.lvASI_Subjects)).setAdapter(mSubjectListAdapter);
@@ -204,7 +204,7 @@ public class StudentInfoActivity extends AppCompatActivity {
     SubjectListAdapter mSubjectListAdapter;
 
     public void createSubjectList(View view) {
-        ListView listView = findViewById(R.id.lvASI_Subjects);
+        ListView listView = findViewById(R.id.lvStudentSubjects);
         mSubjectListAdapter = new SubjectListAdapter(s.getSubjects(), this);
         listView.setAdapter(mSubjectListAdapter);
 
@@ -270,8 +270,8 @@ public class StudentInfoActivity extends AppCompatActivity {
         inputDialog.setCancelable(false);
         View vv = (LinearLayout) getLayoutInflater().inflate(R.layout.subject_input, null);
         inputDialog.setView(vv);
-        final EditText mName = vv.findViewById(R.id.editDialog_subjectName);
-        final Spinner mMark = vv.findViewById(R.id.sDialog_mark);
+        final EditText mName = vv.findViewById(R.id.editDialogSubjectName);
+        final Spinner mMark = vv.findViewById(R.id.sDialogSubjectMark);
         if (!b)
             mName.setError("Не введино название");
         inputDialog.setPositiveButton("Сохранить", new DialogInterface.OnClickListener() {
@@ -311,8 +311,8 @@ public class StudentInfoActivity extends AppCompatActivity {
         inputDialog.setCancelable(false);
         View vv = (LinearLayout) getLayoutInflater().inflate(R.layout.subject_input, null);
         inputDialog.setView(vv);
-        final EditText mName = vv.findViewById(R.id.editDialog_subjectName);
-        final Spinner mMark = vv.findViewById(R.id.sDialog_mark);
+        final EditText mName = vv.findViewById(R.id.editDialogSubjectName);
+        final Spinner mMark = vv.findViewById(R.id.sDialogSubjectMark);
         Integer mID = s.getSubjects().get(position).getID();
         mName.setText(s.getSubjects().get(position).getName());
         mMark.setSelection(getIndex(mMark, s.getSubjects().get(position).getMark()));
@@ -378,17 +378,17 @@ public class StudentInfoActivity extends AppCompatActivity {
     }
 
     public void clSave(View view) {
-        if (((EditText) findViewById(R.id.etASI_FIO)).getText().toString().isEmpty()||
-            ((EditText) findViewById(R.id.etASI_Faculty)).getText().toString().isEmpty()||
-            ((EditText) findViewById(R.id.etASI_Group)).getText().toString().isEmpty()){
-            EditText mFIO = findViewById(R.id.etASI_FIO);
-            EditText mFaculty = findViewById(R.id.etASI_Faculty);
-            EditText mGroup = findViewById(R.id.etASI_Group);
-            if (((EditText) findViewById(R.id.etASI_FIO)).getText().toString().isEmpty())
+        if (((EditText) findViewById(R.id.etStudentFullName)).getText().toString().isEmpty()||
+            ((EditText) findViewById(R.id.etStudentFaculty)).getText().toString().isEmpty()||
+            ((EditText) findViewById(R.id.etStudentGroup)).getText().toString().isEmpty()){
+            EditText mFIO = findViewById(R.id.etStudentFullName);
+            EditText mFaculty = findViewById(R.id.etStudentFaculty);
+            EditText mGroup = findViewById(R.id.etStudentGroup);
+            if (((EditText) findViewById(R.id.etStudentFullName)).getText().toString().isEmpty())
                 mFIO.setError("Не введино ФИО");
-            if (((EditText) findViewById(R.id.etASI_Faculty)).getText().toString().isEmpty())
+            if (((EditText) findViewById(R.id.etStudentFaculty)).getText().toString().isEmpty())
                 mFaculty.setError("Не введин факультет");
-            if (((EditText) findViewById(R.id.etASI_Group)).getText().toString().isEmpty())
+            if (((EditText) findViewById(R.id.etStudentGroup)).getText().toString().isEmpty())
                 mGroup.setError("Не введина группа");
         }
         else{
@@ -399,9 +399,9 @@ public class StudentInfoActivity extends AppCompatActivity {
             std.execute(s);
             Student newS = new Student(
                     s.getID(),
-                    ((EditText) findViewById(R.id.etASI_FIO)).getText().toString(),
-                    ((EditText) findViewById(R.id.etASI_Faculty)).getText().toString(),
-                    ((EditText) findViewById(R.id.etASI_Group)).getText().toString()
+                    ((EditText) findViewById(R.id.etStudentFullName)).getText().toString(),
+                    ((EditText) findViewById(R.id.etStudentFaculty)).getText().toString(),
+                    ((EditText) findViewById(R.id.etStudentGroup)).getText().toString()
             );
 
 //            ed.putInt("count", s.getSubjects().size());

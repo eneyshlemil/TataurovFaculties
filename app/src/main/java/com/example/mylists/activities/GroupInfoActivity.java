@@ -136,8 +136,8 @@ public class GroupInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         downloadFromDB dfd = new downloadFromDB();
         dfd.execute();
-        setContentView(R.layout.main_ll);
-        ((LinearLayout) findViewById(R.id.llInput)).setVisibility(
+        setContentView(R.layout.activity_group_info);
+        ((LinearLayout) findViewById(R.id.llGroupInput)).setVisibility(
                 ((Button) findViewById(R.id.bAddStudent)).getVisibility()
         );
         mPosition = -1;
@@ -196,11 +196,11 @@ public class GroupInfoActivity extends AppCompatActivity {
     StudentListAdapter mStudentListAdapter;
 
     public void createStudentList(View view) {
-        ListView listView = findViewById(R.id.lvList2);
+        ListView listView = findViewById(R.id.lvGroupList2);
         mStudentListAdapter=new StudentListAdapter(mStudents,this);
         listView.setAdapter(mStudentListAdapter);
 
-        ((LinearLayout) findViewById(R.id.llInput)).setVisibility(View.VISIBLE);
+        ((LinearLayout) findViewById(R.id.llGroupInput)).setVisibility(View.VISIBLE);
         ((Button) findViewById(R.id.bAddStudent)).setVisibility(View.VISIBLE);
         ((Button) findViewById(R.id.bCreateStudentList)).setVisibility(View.GONE);
 

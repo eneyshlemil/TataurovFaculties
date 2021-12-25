@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvGroupTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
@@ -15,7 +15,7 @@
         android:textSize="20dp" />
 
     <LinearLayout
-        android:id="@+id/llMiddle"
+        android:id="@+id/llGroupMiddle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_vertical"
@@ -23,7 +23,7 @@
         android:orientation="vertical">
 
         <ListView
-            android:id="@+id/lvList2"
+            android:id="@+id/lvGroupList2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center|center_horizontal|center_vertical"
@@ -35,14 +35,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llBottom"
+        android:id="@+id/llGroupBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone">
 
         <LinearLayout
-            android:id="@+id/llInput"
+            android:id="@+id/llGroupInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -53,7 +53,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/tvGroupFullName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dip"
@@ -63,7 +63,7 @@
                     android:text="ФИО" />
 
                 <EditText
-                    android:id="@+id/editDialog_FIO"
+                    android:id="@+id/editDialogGroupFullName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -78,7 +78,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tvGroupFaculty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dip"
@@ -88,7 +88,7 @@
                     android:text="Факультет" />
 
                 <EditText
-                    android:id="@+id/editDialog_Facultet"
+                    android:id="@+id/editDialogGroupFaculty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -96,7 +96,7 @@
                     android:inputType="text" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/tvGroupGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dip"
@@ -106,7 +106,7 @@
                     android:text="Группа" />
 
                 <EditText
-                    android:id="@+id/editDialog_Group"
+                    android:id="@+id/editDialogGroupGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

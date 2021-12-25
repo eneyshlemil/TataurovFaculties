@@ -7,26 +7,26 @@
     android:paddingBottom="10dip">
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tvSubjectElementNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Название " />
 
     <TextView
-        android:id="@+id/tvSubjestName"
+        android:id="@+id/tvSubjectElementName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/tvSubjectElementMarkTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="оценка " />
+        android:text="Оценка " />
 
     <TextView
-        android:id="@+id/tvSubjectMark"
+        android:id="@+id/tvSubjectElementMark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView" />

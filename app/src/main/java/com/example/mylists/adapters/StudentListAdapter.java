@@ -44,8 +44,8 @@ public class StudentListAdapter extends BaseAdapter {
         if (mStudents.isEmpty()) return view;
 
         ((TextView) view.findViewById(R.id.tvElementFIO)).setText(mStudents.get(position).getFIO());
-        ((TextView) view.findViewById(R.id.tvElementFaculty)).setText(mStudents.get(position).getFaculty());
-        ((TextView) view.findViewById(R.id.tvElementGroup)).setText(mStudents.get(position).getGroup());
+        ((TextView) view.findViewById(R.id.tvStudentElementFaculty)).setText(mStudents.get(position).getFaculty());
+        ((TextView) view.findViewById(R.id.tvStudentElementGroup)).setText(mStudents.get(position).getGroup());
 
 //        ((TextView) view.findViewById(R.id.tvSubjectMark)).setOnClickListener(
 //                new View.OnClickListener() {
@@ -71,7 +71,7 @@ public class StudentListAdapter extends BaseAdapter {
             else((LinearLayout) view.findViewById(R.id.llElement)).setBackgroundColor(
                     mContext.getResources().getColor(R.color.white)
             );  */
-            if (((TextView) view.findViewById(R.id.tvElementFaculty)).getText().toString().equals(faculty))
+            if (((TextView) view.findViewById(R.id.tvStudentElementFaculty)).getText().toString().equals(faculty))
                 ((TextView) view.findViewById(R.id.tvElementFIO)).setTextColor(
                     mContext.getResources().getColor(R.color.red)
             );
