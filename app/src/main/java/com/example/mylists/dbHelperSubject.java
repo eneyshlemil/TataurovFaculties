@@ -11,7 +11,7 @@ public class dbHelperSubject extends SQLiteOpenHelper {
     static final String TABLE = "subjects"; // название таблицы в бд
     // названия столбцов
     public static final String COLUMN_ID = "id";
-    public static final String COLUMN_ID_STUDENT = "id_student";
+    public static final String COLUMN_STUDENT_ID = "student_id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_MARK = "mark";
 
@@ -20,8 +20,8 @@ public class dbHelperSubject extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db) {
-        Log.d("APP3", new StringBuilder().append("CREATE TABLE IF NOT EXISTS ").append(TABLE).append(" (").append(COLUMN_ID).append(" INTEGER PRIMARY KEY AUTOINCREMENT, ").append(COLUMN_ID_STUDENT).append(" INTEGER, ").append(COLUMN_NAME).append(" TEXT, ").append(COLUMN_MARK).append(" INTEGER, FOREIGN KEY (id_student) REFERENCES students(id));").toString());
-        db.execSQL(new StringBuilder().append("CREATE TABLE IF NOT EXISTS ").append(TABLE).append(" (").append(COLUMN_ID).append(" INTEGER PRIMARY KEY AUTOINCREMENT, ").append(COLUMN_ID_STUDENT).append(" INTEGER, ").append(COLUMN_NAME).append(" TEXT, ").append(COLUMN_MARK).append(" INTEGER);").toString());
+        Log.d("Faculty", "CREATE TABLE IF NOT EXISTS " + TABLE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_STUDENT_ID + " INTEGER, " + COLUMN_NAME + " TEXT, " + COLUMN_MARK + " INTEGER, FOREIGN KEY (student_id) REFERENCES students(id));");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_STUDENT_ID + " INTEGER, " + COLUMN_NAME + " TEXT, " + COLUMN_MARK + " INTEGER);");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

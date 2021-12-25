@@ -36,7 +36,7 @@ public class StudentInfoActivity extends AppCompatActivity {
     private dbHelperSubject dbHelperSubject;
     private SQLiteDatabase db;
     private Cursor userCursor;
-    private static final String TAG = "App3";
+    private static final String TAG = "Faculty";
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.subject_menu, menu);
@@ -116,12 +116,12 @@ public class StudentInfoActivity extends AppCompatActivity {
             for (int i = 0; i < st.getSubjects().size(); ++i) {
                 Subject sb = st.getSubjects().get(i);
                 Log.d(TAG, sb.getName());
-//                db.execSQL("insert or replace into subjects (id_student, Name, mark) values ('" + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
+//                db.execSQL("insert or replace into subjects (student_id, Name, mark) values ('" + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
                 if(sb.getID()==null){
-                    db.execSQL("insert into subjects (id_student, Name, mark) values ('" + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
+                    db.execSQL("insert into subjects (student_id, Name, mark) values ('" + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
                 }
                 else{
-                    db.execSQL("replace into subjects (id, id_student, Name, mark) values ('" +sb.getID()+"', '"  + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
+                    db.execSQL("replace into subjects (id, student_id, Name, mark) values ('" +sb.getID()+"', '"  + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
                 }
             }
             for (int i=0; i<delList.size();i++){
@@ -413,12 +413,12 @@ public class StudentInfoActivity extends AppCompatActivity {
 //            for (int i = 0; i < s.getSubjects().size(); ++i) {
 //                Subject sb = s.getSubjects().get(i);
 //                Log.d(TAG, sb.getName());
-////                db.execSQL("insert or replace into subjects (id_student, Name, mark) values ('" + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
+////                db.execSQL("insert or replace into subjects (student_id, Name, mark) values ('" + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
 //                if(sb.getID()==null){
-//                    db.execSQL("insert into subjects (id_student, Name, mark) values ('" + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
+//                    db.execSQL("insert into subjects (student_id, Name, mark) values ('" + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
 //                }
 //                else{
-//                    db.execSQL("replace into subjects (id, id_student, Name, mark) values ('" +sb.getID()+"', '"  + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
+//                    db.execSQL("replace into subjects (id, student_id, Name, mark) values ('" +sb.getID()+"', '"  + sb.getIDStudent()+"', '" + sb.getName()+"', '"+ sb.getMark()+ "'); ");
 //                }
 //            }
             Intent intent = new Intent();

@@ -128,55 +128,6 @@ public class GroupInfoActivity extends AppCompatActivity {
         }
     }
 
-    @SuppressLint("StaticFieldLeak")
-    class saveToDB extends AsyncTask<ArrayList<Student>, ArrayList<Student>, Void> {
-        ArrayList<Student> resultStudents;
-
-        @Override
-        protected void onPreExecute() {
-            Log.d(TAG, "Wait to save students to db");
-            super.onPreExecute();
-        }
-        @Override
-        protected Void doInBackground(ArrayList<Student>... arrayLists) {
-            resultStudents = arrayLists[0];
-            Log.d(TAG, "Start save students to db");
-            if(resultStudents!=null) {
-                Log.d(TAG, Integer.toString(userId));
-                Log.d(TAG, Integer.toString(resultStudents.size()));
-                for (int i=0;i<resultStudents.size();++i){
-                    Student sdb = resultStudents.get(i);
-                    ContentValues cv = new ContentValues();
-                    cv.put(dbHelperStudent.COLUMN_ID, sdb.getID());
-                    cv.put(dbHelperStudent.COLUMN_fio, sdb.getFIO());
-                    cv.put(dbHelperStudent.COLUMN_faculty, sdb.getFaculty());
-                    cv.put(dbHelperStudent.COLUMN_group, sdb.getGroup());
-                    Log.d(TAG, Integer.toString(sdb.getID()));
-                    if (sdb.getID() <= userId) {
-                        Log.d(TAG, "update");
-                        Log.d(TAG, cv.toString());
-                        db.update(dbHelperStudent.TABLE, cv, dbHelperStudent.COLUMN_ID + "=" + sdb.getID(), null);
-                    } else if (sdb.getID() > userId){
-                        Log.d(TAG, "insert");
-                        db.insert(dbHelperStudent.TABLE, null, cv);
-                    }
-                }
-                for (int i=0; i<delStdID.size();i++){
-                    Log.d(TAG, "delete");
-                    dbHelperSubject dbHelperSubject = new dbHelperSubject(getApplicationContext());
-                    SQLiteDatabase dbC = dbHelperSubject.getReadableDatabase();
-                    dbC.delete(com.example.mylists.dbHelperSubject.TABLE, "id_student = ?", new String[]{String.valueOf(delStdID.get(i))});
-                    db.delete(com.example.mylists.dbHelperStudent.TABLE, "id = ?", new String[]{String.valueOf(delStdID.get(i))});
-                }
-            }
-            return null;
-        }
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-            Log.d(TAG, "End save students to db");
-        }
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -326,43 +277,56 @@ public class GroupInfoActivity extends AppCompatActivity {
     protected void onDestroy(){
         saveToDB std = new saveToDB();
         std.execute(mStudents);
-//        if(mStudents!=null) {
-////            SharedPreferences.Editor ed = getPreferences(MODE_PRIVATE).edit();
-////            GsonBuilder builder = new GsonBuilder();
-////            Gson gson = builder.create();
-////            ed.putInt("count", mStudents.size());
-//
-//            Log.d(TAG, Integer.toString(userId));
-//            Log.d(TAG, Integer.toString(mStudents.size()));
-//            for (int i=0;i<mStudents.size();++i){
-//                Student sdb = mStudents.get(i);
-////                String s = gson.toJson(mStudents.get(i));
-////                ed.putString("student"+i, s);
-//                ContentValues cv = new ContentValues();
-//                cv.put(dbHelperStudent.COLUMN_ID, sdb.getID());
-//                cv.put(dbHelperStudent.COLUMN_fio, sdb.getFIO());
-//                cv.put(dbHelperStudent.COLUMN_faculty, sdb.getFaculty());
-//                cv.put(dbHelperStudent.COLUMN_group, sdb.getGroup());
-//                Log.d(TAG, Integer.toString(sdb.getID()));
-//                if (sdb.getID() <= userId) {
-//                    Log.d(TAG, "update");
-//                    Log.d(TAG, cv.toString());
-//                    db.update(dbHelperStudent.TABLE, cv, dbHelperStudent.COLUMN_ID + "=" + sdb.getID(), null);
-//                } else if (sdb.getID() > userId){
-//                    Log.d(TAG, "insert");
-//                    db.insert(dbHelperStudent.TABLE, null, cv);
-//                }
-//            }
-//
-//            for (int i=0; i<delStdID.size();i++){
-//                Log.d(TAG, "delete");
-//                dbHelperSubject dbHelperSubject = new dbHelperSubject(getApplicationContext());
-//                SQLiteDatabase dbC = dbHelperSubject.getReadableDatabase();
-//                dbC.delete(com.example.mylists.dbHelperSubject.TABLE, "id = ?", new String[]{String.valueOf(delStdID.get(i))});
-//                db.delete(com.example.mylists.dbHelperStudent.TABLE, "id = ?", new String[]{String.valueOf(delStdID.get(i))});
-//            }
-////            ed.commit();
-//        }
         super.onDestroy();
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    class saveToDB extends AsyncTask<ArrayList<Student>, ArrayList<Student>, Void> {
+        ArrayList<Student> resultStudents;
+
+        @Override
+        protected void onPreExecute() {
+            Log.d(TAG, "Wait to save students to db");
+            super.onPreExecute();
+        }
+        @Override
+        protected Void doInBackground(ArrayList<Student>... arrayLists) {
+            resultStudents = arrayLists[0];
+            Log.d(TAG, "Start save students to db");
+            if(resultStudents!=null) {
+                Log.d(TAG, Integer.toString(userId));
+                Log.d(TAG, Integer.toString(resultStudents.size()));
+                for (int i=0;i<resultStudents.size();++i){
+                    Student sdb = resultStudents.get(i);
+                    ContentValues cv = new ContentValues();
+                    cv.put(dbHelperStudent.COLUMN_ID, sdb.getID());
+                    cv.put(dbHelperStudent.COLUMN_FULL_NAME, sdb.getFIO());
+                    cv.put(dbHelperStudent.COLUMN_FACULTY, sdb.getFaculty());
+                    cv.put(dbHelperStudent.COLUMN_GROUP, sdb.getGroup());
+                    Log.d(TAG, Integer.toString(sdb.getID()));
+                    if (sdb.getID() <= userId) {
+                        Log.d(TAG, "update");
+                        Log.d(TAG, cv.toString());
+                        db.update(dbHelperStudent.TABLE, cv, dbHelperStudent.COLUMN_ID + "=" + sdb.getID(), null);
+                    } else if (sdb.getID() > userId){
+                        Log.d(TAG, "insert");
+                        db.insert(dbHelperStudent.TABLE, null, cv);
+                    }
+                }
+                for (int i=0; i<delStdID.size();i++){
+                    Log.d(TAG, "delete");
+                    dbHelperSubject dbHelperSubject = new dbHelperSubject(getApplicationContext());
+                    SQLiteDatabase dbC = dbHelperSubject.getReadableDatabase();
+                    dbC.delete(com.example.mylists.dbHelperSubject.TABLE, "student_id = ?", new String[]{String.valueOf(delStdID.get(i))});
+                    db.delete(com.example.mylists.dbHelperStudent.TABLE, "id = ?", new String[]{String.valueOf(delStdID.get(i))});
+                }
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            Log.d(TAG, "End save students to db");
+        }
     }
 }
