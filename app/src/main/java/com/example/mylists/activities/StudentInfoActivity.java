@@ -1,4 +1,4 @@
-package com.example.mylists;
+package com.example.mylists.activities;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +22,9 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
 
+import com.example.mylists.R;
 import com.example.mylists.adapters.SubjectListAdapter;
+import com.example.mylists.db.dbHelperSubject;
 import com.example.mylists.models.Student;
 import com.example.mylists.models.Subject;
 
@@ -33,7 +35,7 @@ public class StudentInfoActivity extends AppCompatActivity {
     private Student s;
     private Menu mMenu;
     private ActivityResultLauncher<Intent> mIntentActivityResultLauncher;
-    private dbHelperSubject dbHelperSubject;
+    private com.example.mylists.db.dbHelperSubject dbHelperSubject;
     private SQLiteDatabase db;
     private Cursor userCursor;
     private static final String TAG = "Faculty";

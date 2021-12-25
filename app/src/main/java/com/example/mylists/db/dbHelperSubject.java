@@ -1,4 +1,4 @@
-package com.example.mylists;
+package com.example.mylists.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,7 +8,7 @@ import android.util.Log;
 public class dbHelperSubject extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "app.db"; // название бд
     private static final int SCHEMA = 1; // версия базы данных
-    static final String TABLE = "subjects"; // название таблицы в бд
+    public static final String TABLE = "subjects"; // название таблицы в бд
     // названия столбцов
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_STUDENT_ID = "student_id";

@@ -1,4 +1,4 @@
-package com.example.mylists;
+package com.example.mylists.activities;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -25,7 +25,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.example.mylists.R;
 import com.example.mylists.adapters.StudentListAdapter;
+import com.example.mylists.db.dbHelperStudent;
+import com.example.mylists.db.dbHelperSubject;
 import com.example.mylists.models.Student;
 
 import java.util.ArrayList;
@@ -317,8 +320,8 @@ public class GroupInfoActivity extends AppCompatActivity {
                     Log.d(TAG, "delete");
                     dbHelperSubject dbHelperSubject = new dbHelperSubject(getApplicationContext());
                     SQLiteDatabase dbC = dbHelperSubject.getReadableDatabase();
-                    dbC.delete(com.example.mylists.dbHelperSubject.TABLE, "student_id = ?", new String[]{String.valueOf(delStdID.get(i))});
-                    db.delete(com.example.mylists.dbHelperStudent.TABLE, "id = ?", new String[]{String.valueOf(delStdID.get(i))});
+                    dbC.delete(com.example.mylists.db.dbHelperSubject.TABLE, "student_id = ?", new String[]{String.valueOf(delStdID.get(i))});
+                    db.delete(com.example.mylists.db.dbHelperStudent.TABLE, "id = ?", new String[]{String.valueOf(delStdID.get(i))});
                 }
             }
             return null;
